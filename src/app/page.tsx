@@ -47,6 +47,7 @@ export default function Page() {
               rounded-none
               overflow-hidden
               shadow-2xl
+              bg-black
               mt-20
             "
             style={{

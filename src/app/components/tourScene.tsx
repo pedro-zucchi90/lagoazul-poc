@@ -248,6 +248,7 @@ export default function TourScene() {
               width: "100%",
               height: "100%",
               top: "1%",
+              left: "2%",
               borderRadius: "1.5rem",
               overflow: "hidden",
               background: "transparent",
