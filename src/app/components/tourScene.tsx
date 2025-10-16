@@ -42,8 +42,10 @@ export default function TourScene() {
   const [enablePan, setEnablePan] = useState(false)
   const [enableZoom, setEnableZoom] = useState(true)
   const [enableDamping, setEnableDamping] = useState(true)
-  const [cameraState, setCameraState] = useState({ fov: 85 }) // FOV maior para mostrar mais área
+  const [cameraState, setCameraState] = useState({ fov: 85 })
   const [popupHotspot, setPopupHotspot] = useState<any>(null)
+  const [reverseHorizontalOrbit, setReverseHorizontalOrbit] = useState(true)
+  const [reverseVerticalOrbit, setReverseVerticalOrbit] = useState(true)
   const orbitRef = useRef<any>(null)
   const location = LOCATIONS.find(loc => loc.key === currentLoc)!
 
@@ -224,6 +226,14 @@ export default function TourScene() {
             <input type="checkbox" checked={enableDamping} onChange={() => setEnableDamping(s => !s)} />
             Inércia
           </label>
+          <label className="text-sm text-gray-200 flex gap-2 items-center">
+            <input type="checkbox" checked={reverseHorizontalOrbit} onChange={() => setReverseHorizontalOrbit(s => !s)} />
+            Inverter eixo horizontal
+          </label>
+          <label className="text-sm text-gray-200 flex gap-2 items-center">
+            <input type="checkbox" checked={reverseVerticalOrbit} onChange={() => setReverseVerticalOrbit(s => !s)} />
+            Inverter eixo vertical
+          </label>
         </div>
         {/* controle de camera*/}
         <div className="absolute left-4 bottom-20 md:left-8 md:bottom-24 z-20 pointer-events-auto">
@@ -241,7 +251,6 @@ export default function TourScene() {
             background: "#111827",
           }}
         >
-
           <div
             style={{
               position: "absolute",
@@ -281,6 +290,8 @@ export default function TourScene() {
                   autoRotateSpeed={0.3}
                   maxPolarAngle={Math.PI}
                   minPolarAngle={0}
+                  reverseHorizontalOrbit={reverseHorizontalOrbit}
+                  reverseVerticalOrbit={reverseVerticalOrbit}
                 />
               </Suspense>
             </Canvas>
