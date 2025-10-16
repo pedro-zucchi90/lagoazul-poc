@@ -46,6 +46,7 @@ export default function TourScene() {
   const [popupHotspot, setPopupHotspot] = useState<any>(null)
   const [reverseHorizontalOrbit, setReverseHorizontalOrbit] = useState(true)
   const [reverseVerticalOrbit, setReverseVerticalOrbit] = useState(true)
+  const [rotateSpeed, setRotateSpeed] = useState(0.3)
   const orbitRef = useRef<any>(null)
   const location = LOCATIONS.find(loc => loc.key === currentLoc)!
 
@@ -234,6 +235,20 @@ export default function TourScene() {
             <input type="checkbox" checked={reverseVerticalOrbit} onChange={() => setReverseVerticalOrbit(s => !s)} />
             Inverter eixo vertical
           </label>
+          <label className="text-sm text-gray-200 flex gap-2 items-center">
+            <span>Velocidade de rotação</span>
+            <input
+              type="range"
+              min={0.05}
+              max={2}
+              step={0.05}
+              value={rotateSpeed}
+              onChange={s => setRotateSpeed(Number(s.target.value))}
+              className="accent-blue-600"
+              style={{ width: "110px" }}
+            />
+            <span className="ml-2 text-xs text-gray-300 w-8 text-right tabular-nums">{rotateSpeed.toFixed(2)}x</span>
+          </label>
         </div>
         {/* controle de camera*/}
         <div className="absolute left-4 bottom-20 md:left-8 md:bottom-24 z-20 pointer-events-auto">
@@ -292,6 +307,7 @@ export default function TourScene() {
                   minPolarAngle={0}
                   reverseHorizontalOrbit={reverseHorizontalOrbit}
                   reverseVerticalOrbit={reverseVerticalOrbit}
+                  rotateSpeed={rotateSpeed}
                 />
               </Suspense>
             </Canvas>
