@@ -220,10 +220,6 @@ export default function TourScene() {
             Rotação automática
           </label>
           <label className="text-sm text-gray-200 flex gap-2 items-center">
-            <input type="checkbox" checked={enableZoom} onChange={() => setEnableZoom(s => !s)} />
-            Zoom
-          </label>
-          <label className="text-sm text-gray-200 flex gap-2 items-center">
             <input type="checkbox" checked={enableDamping} onChange={() => setEnableDamping(s => !s)} />
             Inércia
           </label>
