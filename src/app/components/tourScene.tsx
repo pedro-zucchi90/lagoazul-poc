@@ -143,7 +143,7 @@ export default function TourScene() {
             position: "absolute",
             left: 0,
             right: 0,
-            top: "6.5rem", // aumente este valor para mover todos mais para baixo
+            top: "6.5rem",
             paddingLeft: "2rem",
             paddingRight: "2rem",
             width: "100%",
@@ -156,15 +156,16 @@ export default function TourScene() {
           <div
             style={{
               background: "rgba(0,0,0,0.6)",
-              padding: "0.5rem 1.2rem",
+              padding: "0.5rem 1rem",
               borderRadius: "0.75rem",
               color: "white",
               fontWeight: 600,
-              fontSize: "1.4rem",
+              fontSize: "2rem",
               overflow: "hidden",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
-              maxWidth: "28vw"
+              maxWidth: "28vw",
+              marginLeft: "2rem", // Desloca mais para a direita
             }}
           >
             {location.name}
@@ -180,7 +181,9 @@ export default function TourScene() {
               maxWidth: "38vw",
               minWidth: 0,
               display: "flex",
-              alignItems: "center"
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: "1.7rem"
             }}
           >
             {LOCATIONS.map(loc => (
@@ -209,7 +212,7 @@ export default function TourScene() {
           </div>
         </div>
         {/* controles extras de painel - agora no canto inferior direito */}
-        <div className="absolute right-4 bottom-16 md:right-8 md:bottom-24 z-20 bg-black/50 p-4 md:p-5 rounded-2xl flex flex-col gap-3 shadow-xl pointer-events-auto">
+        <div className="absolute right-4 bottom-12 md:right-14 md:bottom-22 z-20 bg-black/50 p-4 md:p-5 rounded-2xl flex flex-col gap-3 shadow-xl pointer-events-auto">
           <span className="text-sm text-white mb-3 font-semibold uppercase tracking-wide">Controles:</span>
           <label className="text-sm text-gray-200 flex gap-2 items-center">
             <input type="checkbox" checked={showHotspots} onChange={() => setShowHotspots(s => !s)} />
@@ -247,7 +250,7 @@ export default function TourScene() {
           </label>
         </div>
         {/* controle de camera*/}
-        <div className="absolute left-4 bottom-20 md:left-8 md:bottom-24 z-20 pointer-events-auto">
+        <div className="absolute left-14 md:bottom-24 z-20 pointer-events-auto">
           <CameraControls cameraControl={orbitRef} setCameraState={setCameraState} cameraState={cameraState} />
         </div>
         {/* ---- Canvas ---- */}
@@ -278,7 +281,7 @@ export default function TourScene() {
               justifyContent: 'center'
             }}
           >
-            {/* Canvas maior! */}
+
             <Canvas
               camera={{ position: [0, 0, 0.1], fov: cameraState.fov }}
               style={{
