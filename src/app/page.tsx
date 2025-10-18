@@ -21,6 +21,14 @@ export default function Page() {
       className="flex flex-col min-h-screen text-white relative"
       style={{ background: "#111827" }}
     >
+      <div
+        className="fixed left-9 bottom-[26px] z-50 pointer-events-none"
+      >
+        <div className="bg-gray-900/70 rounded px-4 py-2 text-xs text-gray-300 border border-gray-700 shadow backdrop-blur-sm max-w-xs text-left pointer-events-auto">
+          <strong>Aviso:</strong> As imagens aqui apresentadas aqui são apenas para teste e podem conter distorções.
+        </div>
+      </div>
+
       {/* HERO: ocupa grande parte da tela */}
       <section className="relative w-full flex flex-col justify-center items-center flex-1 min-h-[70vh] max-h-[92vh] p-0 m-0">
         <h1 className="absolute top-10 left-0 right-0 text-4xl font-bold text-center drop-shadow-lg z-20 pointer-events-none">
@@ -63,11 +71,6 @@ export default function Page() {
         )}
       </section>
       <footer className="w-full flex flex-col items-center py-8 text-sm text-gray-400 z-10">
-        <div className="mb-4 w-full flex justify-center">
-          <div className="bg-gray-900/70 rounded px-4 py-2 text-xs text-gray-300 border border-gray-700 shadow backdrop-blur-sm max-w-xl text-center">
-            <strong>Aviso:</strong> As imagens apresentadas aqui são apenas para teste e podem conter distorções.
-          </div>
-        </div>
         <div>
           © 2025 Prova de Conceito - PoC
         </div>
