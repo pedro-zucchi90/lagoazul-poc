@@ -13,6 +13,9 @@ export default function Page() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Ensures TourScene is a valid React element and not a function/component reference
+  const renderTourScene = () => <TourScene />
+
   return (
     <main
       className="flex flex-col min-h-screen text-white relative"
@@ -55,7 +58,7 @@ export default function Page() {
               background: "#111827"
             }}
           >
-            <TourScene />
+            {renderTourScene()}
           </motion.div>
         )}
       </section>

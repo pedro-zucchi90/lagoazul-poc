@@ -1,4 +1,6 @@
-// Locais disponíveis para o tour
+import { FaTree, FaSwimmer } from "react-icons/fa";
+import { MdWaterDrop } from "react-icons/md";
+
 export const LOCATIONS = [
   {
     key: "lago",
@@ -8,7 +10,7 @@ export const LOCATIONS = [
       {
         position: [-7, 3, 0],
         label: "Área de preservação",
-        icon: "🌳",
+        icon: FaTree,
         popupMessage: "Esta área é protegida para preservar a fauna e flora local."
       },
     ]
@@ -21,7 +23,7 @@ export const LOCATIONS = [
       {
         position: [2, 0.5, 4],
         label: "Água cristalina",
-        icon: "💧",
+        icon: MdWaterDrop,
         popupMessage: "A água aqui é incrivelmente limpa e refrescante."
       }
     ]
@@ -34,7 +36,7 @@ export const LOCATIONS = [
       {
         position: [2, -1, 0],
         label: "Piscina",
-        icon: "🏊",
+        icon: FaSwimmer,
         popupMessage: "Área ideal para se refrescar e relaxar."
       },
     ]

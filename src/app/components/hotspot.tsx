@@ -3,18 +3,20 @@
 import { useState } from "react"
 import { Html } from "@react-three/drei"
 import { motion, AnimatePresence } from "framer-motion"
+import React from "react"
 
 interface HotspotProps {
   hotspot: {
     position: [number, number, number]
     label: string
-    icon?: string
+    icon?: React.ElementType
     popupMessage?: string
   }
 }
 
 export default function Hotspot({ hotspot }: HotspotProps) {
   const [showPopup, setShowPopup] = useState(false)
+  const Icon = hotspot.icon
 
   return (
     <group position={hotspot.position}>
@@ -25,7 +27,7 @@ export default function Hotspot({ hotspot }: HotspotProps) {
           type="button"
           onClick={() => setShowPopup(true)}
         >
-          <span>{hotspot.icon || "🌳"}</span>
+          {Icon && <span>{React.createElement(Icon)}</span>}
           <span>{hotspot.label}</span>
         </motion.button>
         <AnimatePresence>
@@ -39,7 +41,7 @@ export default function Hotspot({ hotspot }: HotspotProps) {
             >
               <div className="bg-white/95 rounded-xl px-6 py-5 shadow-xl border-2 border-blue-500 max-w-xs min-w-[190px]">
                 <div className="flex items-center gap-2 mb-2 text-xl font-semibold text-blue-700">
-                  {hotspot.icon && <span>{hotspot.icon}</span>}
+                  {Icon && <span>{React.createElement(Icon)}</span>}
                   <span>{hotspot.label}</span>
                 </div>
                 <div className="text-gray-900 text-sm mb-4">

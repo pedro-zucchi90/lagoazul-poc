@@ -64,7 +64,7 @@ export default function TourScene() {
     const texture = useLoader(THREE.TextureLoader, location.texture)
     return (
       <>
-        {/* Aumenta o radius da esfera para garantir cobertura total do canvas */}
+        {/* Aumenta o radius da esfera para garantir cobertura total do canva */}
         <mesh scale={[1, 1, -1]}>
           <sphereGeometry args={[100, 64, 64]} />
           <meshBasicMaterial map={Array.isArray(texture) ? texture[0] : texture} side={THREE.BackSide} />
@@ -100,7 +100,7 @@ export default function TourScene() {
         width: "100%",
         position: "relative",
         padding: 0,
-        background: "#111827" // fundo principal do site
+        background: "#111827"
       }}
     >
       <div
@@ -133,10 +133,9 @@ export default function TourScene() {
           padding: 0,
           position: "relative",
           overflow: "hidden",
-          background: "#111827" // fundo igual ao fundo do site
+          background: "#111827"
         }}
       >
-        {/* Alinhar nome da localização e botões de seleção juntos, um pouco mais para baixo */}
         <div
           className="z-20 pointer-events-auto flex items-center"
           style={{
@@ -152,6 +151,8 @@ export default function TourScene() {
             pointerEvents: "auto",
           }}
         >
+
+
           {/* Nome da localização */}
           <div
             style={{
@@ -165,11 +166,13 @@ export default function TourScene() {
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               maxWidth: "28vw",
-              marginLeft: "2rem", // Desloca mais para a direita
+              marginLeft: "2rem",
             }}
           >
             {location.name}
           </div>
+
+
           {/* Botões seleção de local */}
           <div
             className="flex flex-wrap gap-3"
@@ -211,7 +214,9 @@ export default function TourScene() {
             ))}
           </div>
         </div>
-        {/* controles extras de painel - agora no canto inferior direito */}
+
+
+        {/* painel de controles */}
         <div className="absolute right-4 bottom-12 md:right-14 md:bottom-22 z-20 bg-black/50 p-4 md:p-5 rounded-2xl flex flex-col gap-3 shadow-xl pointer-events-auto">
           <span className="text-sm text-white mb-3 font-semibold uppercase tracking-wide">Controles:</span>
           <label className="text-sm text-gray-200 flex gap-2 items-center">
@@ -249,10 +254,14 @@ export default function TourScene() {
             <span className="ml-2 text-xs text-gray-300 w-8 text-right tabular-nums">{rotateSpeed.toFixed(2)}x</span>
           </label>
         </div>
+
+
         {/* controle de camera*/}
         <div className="absolute left-14 md:bottom-24 z-20 pointer-events-auto">
           <CameraControls cameraControl={orbitRef} setCameraState={setCameraState} cameraState={cameraState} />
         </div>
+      
+
         {/* ---- Canvas ---- */}
         <div
           style={{
