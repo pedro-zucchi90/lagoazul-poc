@@ -5,7 +5,7 @@ export const LOCATIONS = [
   {
     key: "lago",
     name: "Lago",
-    texture: "/Lago.jpg",
+    texture: "/lago.jpg",
     hotspots: [
       {
         position: [-7, 3, 0],
