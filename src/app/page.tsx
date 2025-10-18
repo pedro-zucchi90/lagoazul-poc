@@ -62,8 +62,15 @@ export default function Page() {
           </motion.div>
         )}
       </section>
-      <footer className="w-full py-8 text-center text-sm text-gray-400 z-10">
-        © 2025 Prova de Conceito - PoC
+      <footer className="w-full flex flex-col items-center py-8 text-sm text-gray-400 z-10">
+        <div className="mb-4 w-full flex justify-center">
+          <div className="bg-gray-900/70 rounded px-4 py-2 text-xs text-gray-300 border border-gray-700 shadow backdrop-blur-sm max-w-xl text-center">
+            <strong>Aviso:</strong> As imagens apresentadas aqui são apenas para teste e podem conter distorções.
+          </div>
+        </div>
+        <div>
+          © 2025 Prova de Conceito - PoC
+        </div>
       </footer>
     </main>
   )
